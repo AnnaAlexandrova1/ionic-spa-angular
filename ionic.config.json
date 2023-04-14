@@ -1,0 +1,10 @@
+{
+  "defaultProject": "spa-angular",
+  "projects": {
+    "spa-angular": {
+      "name": "spa-angular",
+      "integrations": {},
+      "type": "angular"
+    }
+  }
+}
