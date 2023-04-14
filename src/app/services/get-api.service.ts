@@ -15,13 +15,13 @@ export class GetApiService {
     ) {
         
     }
-    getAll():Observable<IBeerList> {
+    getAll(page:number):Observable<IBeerList> {
         return this.http.get<IBeerList>('https://api.punkapi.com/v2/beers?', {
             params: new HttpParams(
                 {
                     fromObject: {
                         per_page: 5, 
-                        page: 1 
+                        page: page
                     }
                 }
             )

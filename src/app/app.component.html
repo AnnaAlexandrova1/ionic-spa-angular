@@ -15,12 +15,18 @@
  
   <app-global-error></app-global-error>
 
-
-
   <ion-content scrollEvents="true">
-    <card-item *ngFor="let item of items$ | async; let i = index" [item]="item"></card-item>
-  </ion-content>
+    <card-item *ngFor="let item of items" [item]="item"></card-item>
 
-  <app-pagination></app-pagination>
+     <ion-grid class="pagination-element">
+      <ion-row class="ion-justify-content-around">      
+              <ion-col *ngFor="let arr of [1, 2, 3]"
+              size="3" class="pagination-item"
+              (click)="goToPage(arr)">{{arr}}</ion-col> 
+      </ion-row>
+</ion-grid>
+  </ion-content>
+  
+  
 
 </ion-app>

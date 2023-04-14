@@ -36,3 +36,8 @@ export interface IStatus {
     error: boolean, 
     errStatus: boolean
 }
+
+export interface MyPagination {
+  itemsCount: number;
+  pageSize: number;
+}
