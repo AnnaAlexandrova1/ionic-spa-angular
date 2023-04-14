@@ -2,14 +2,18 @@
   <ion-header>
     <div class="header-container">
       <div>
-        <img class="logo-img" src="../images/logo.jpg" alt="Main Logo" />
+        <img class="logo-img" src='../assets/logo.jpg' alt="Main Logo" >
       </div>
       <ion-button color="medium"> Избранное </ion-button>
     </div>
   </ion-header>
 
+  <div class="loading-element" *ngIf="loading">ЗАГРУЗКА
+            <ion-spinner name="lines"></ion-spinner>
+  </div>
+
   <ion-content scrollEvents="true">
-    <card-item *ngFor="let item of items; let i = index" [item]="item"></card-item>
+    <card-item *ngFor="let item of items$ | async; let i = index" [item]="item"></card-item>
   </ion-content>
 
 </ion-app>

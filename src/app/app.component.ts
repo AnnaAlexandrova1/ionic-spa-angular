@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetApiService } from './services/get-api.service';
 import { IBeerList } from './interfaces/interfaces';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,18 @@ import { IBeerList } from './interfaces/interfaces';
 })
 export class AppComponent implements OnInit{
   title = 'spa-angular';
-  items: IBeerList = []
+  items$: Observable<IBeerList>
+  loading = false
+
 
   constructor(private itemsService: GetApiService) {
     
   }
 
   ngOnInit(): void {
-    this.itemsService.getAll().subscribe(items => {
-      this.items = items
-      console.log(this.items)
-    }
-      )
+    this.loading = true
+    this.items$ = this.itemsService.getAll().pipe(
+      tap(() => this.loading = false)
+    )
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from "rxjs";
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { Observable, catchError, throwError } from "rxjs";
 import { IBeerList } from "../interfaces/interfaces";
 
 @Injectable({
@@ -21,8 +21,12 @@ export class GetApiService {
                     }
                 }
             )
-        })
+        }).pipe(
+            catchError(this.errorHandler)
+        )
+    }
+
+    private errorHandler(error: HttpErrorResponse) {
+        return throwError(() => error.message)
     }
 }
-
-// https://api.punkapi.com/v2/beers?page=1&per_page=5
