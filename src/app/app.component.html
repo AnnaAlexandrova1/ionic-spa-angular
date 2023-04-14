@@ -12,6 +12,11 @@
             <ion-spinner name="lines"></ion-spinner>
   </div>
 
+ 
+  <app-global-error></app-global-error>
+
+
+
   <ion-content scrollEvents="true">
     <card-item *ngFor="let item of items$ | async; let i = index" [item]="item"></card-item>
   </ion-content>

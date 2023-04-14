@@ -7,11 +7,12 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 import { CardItemComponent } from './components/card-item/card-item.component';
+import { GlobalErrorComponent } from './components/global-error/global-error.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    CardItemComponent
+    CardItemComponent, GlobalErrorComponent
   ],
   imports: [
     BrowserModule,
