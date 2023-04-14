@@ -9,7 +9,5 @@ import { IBeerItem } from 'src/app/interfaces/interfaces'
 })
 
 export class CardItemComponent {
-    @Input() item: IBeerItem
-    
-    details:boolean = false
+    @Input() item: IBeerItem    
 }

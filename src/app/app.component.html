@@ -18,7 +18,7 @@
 
 
   <ion-content scrollEvents="true">
-   <cards-list></cards-list>
+    <card-item *ngFor="let item of items$ | async; let i = index" [item]="item"></card-item>
   </ion-content>
 
   <app-pagination></app-pagination>

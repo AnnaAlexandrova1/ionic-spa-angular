@@ -9,12 +9,11 @@ import { IonicModule } from '@ionic/angular';
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
-import { CardsListComponent } from './components/pages/cards-list/cards-list.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    CardItemComponent, GlobalErrorComponent, PaginationComponent, CardsListComponent
+    CardItemComponent, GlobalErrorComponent, PaginationComponent
   ],
   imports: [
     BrowserModule,
