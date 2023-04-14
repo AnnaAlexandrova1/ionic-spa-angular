@@ -7,5 +7,9 @@
       <ion-button color="medium"> Избранное </ion-button>
     </div>
   </ion-header>
-  <card-item></card-item>
+
+  <ion-content scrollEvents="true">
+    <card-item *ngFor="let item of items; let i = index" [item]="item"></card-item>
+  </ion-content>
+
 </ion-app>

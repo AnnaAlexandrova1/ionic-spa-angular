@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from './services/products.service';
+import { GetApiService } from './services/get-api.service';
 import { IBeerList } from './interfaces/interfaces';
 
 @Component({
@@ -9,15 +9,16 @@ import { IBeerList } from './interfaces/interfaces';
 })
 export class AppComponent implements OnInit{
   title = 'spa-angular';
-  products: IBeerList = []
+  items: IBeerList = []
 
-  constructor(private productsService: ProductsService) {
+  constructor(private itemsService: GetApiService) {
     
   }
 
   ngOnInit(): void {
-    this.productsService.getAll().subscribe(products => {
-        console.log(products)
+    this.itemsService.getAll().subscribe(items => {
+      this.items = items
+      console.log(this.items)
     }
       )
   }

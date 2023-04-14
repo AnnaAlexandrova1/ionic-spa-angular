@@ -1,11 +1,10 @@
-<ion-card color="light" className="ion-card">
+<ion-card color="light" class="item-card">
   <!-- onClick={() => handleOnCardClick(item.id)}> -->
   <ion-card-header>
-    ля ля ля
-    <!-- <ion-card-title> {{item.name}} </ion-card-title>
-    <ion-card-subtitle> {{item.abv}} </ion-card-subtitle> -->
+    <ion-card-title> {{item.name}} </ion-card-title>
+    <ion-card-subtitle> {{item.abv}} </ion-card-subtitle>
   </ion-card-header>
-  <ion-card-content>
-    <!-- <img className="card-image" alt="{item.name}" src="{item.image_url}" /> -->
-  </ion-card-content>
+  <!-- <ion-card-content> -->
+    <img class="card-image" [alt]="item.name" [src]="item.image_url" />
+  <!-- </ion-card-content> -->
 </ion-card>

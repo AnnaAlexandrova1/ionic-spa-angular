@@ -4,11 +4,12 @@ import { IBeerItem } from 'src/app/interfaces/interfaces'
 
 @Component({
     selector: 'card-item', 
-    templateUrl: './card-item.component.html'   
+    templateUrl: './card-item.component.html',
+    styleUrls: ['./card-item.component.css']
 })
 
 export class CardItemComponent {
-    @Input() product: IBeerItem
+    @Input() item: IBeerItem
     
     details:boolean = false
 }
