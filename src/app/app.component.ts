@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { products as data} from './data/products';
-import { IProduct } from './interfaces/interfaces';
 import { ProductsService } from './services/products.service';
+import { IBeerList } from './interfaces/interfaces';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,7 @@ import { ProductsService } from './services/products.service';
 })
 export class AppComponent implements OnInit{
   title = 'spa-angular';
-  products: IProduct[] = []
+  products: IBeerList = []
 
   constructor(private productsService: ProductsService) {
     

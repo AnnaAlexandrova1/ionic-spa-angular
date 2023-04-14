@@ -1,15 +1,15 @@
-import { Component, Input } from '@angular/core'
-import { IProduct } from 'src/app/interfaces/interfaces'
+// import { Component, Input } from '@angular/core'
+// import { IProduct } from 'src/app/interfaces/interfaces'
 
 
-@Component({
-    selector: 'app-product', 
-    templateUrl: './product.component.html'
+// @Component({
+//     selector: 'app-product', 
+//     templateUrl: './product.component.html'
     
-})
+// })
 
-export class ProductComponent {
-    @Input() product: IProduct
+// export class ProductComponent {
+//     @Input() product: IProduct
     
-    details:boolean = false
-}
+//     details:boolean = false
+// }
