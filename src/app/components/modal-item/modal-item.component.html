@@ -1,26 +1,40 @@
-<ion-modal [isOpen]="checkedItemIsOpen" class="item-modal" >
-<ng-template >
+<ion-modal [isOpen]="checkedItemIsOpen" class="item-modal">
+  <ng-template>
     <div class="close-button-area">
-    <ion-icon name="close-circle-outline" size="large"></ion-icon>
+      <ion-button color="success">
+        В избранное
+        <ion-icon slot="end" name="star"></ion-icon>
+      </ion-button>
+      <ion-icon
+        name="close-circle-outline"
+        size="large"
+        (click)="unCheckedItem()"
+      ></ion-icon>
     </div>
-    <ion-card-header>
-    <ion-card-title> {{checkedItem.name}} </ion-card-title>
-    <ion-card-subtitle> {{checkedItem.abv}} </ion-card-subtitle>
-  </ion-card-header>
-    <ion-card-content>
-    <img class="card-image" [alt]="checkedItem.name" [src]="checkedItem.image_url" />
 
-     <div class="card-content-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title> {{ checkedItem.name }} </ion-card-title>
+        <ion-card-subtitle> {{ checkedItem.abv }} </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <img
+          class="card-image"
+          [alt]="checkedItem.name"
+          [src]="checkedItem.image_url"
+        />
+
+        <div class="card-content-container">
           <div class="card-content-item">
             Description:
-            <p>{{checkedItem.description}}</p>
+            <p>{{ checkedItem.description }}</p>
           </div>
           <div class="card-content-item">
-            Tagline: 
-              <p>{{checkedItem.tagline}}</p>
+            Tagline:
+            <p>{{ checkedItem.tagline }}</p>
           </div>
         </div>
-  </ion-card-content>
-
-</ng-template>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
 </ion-modal>

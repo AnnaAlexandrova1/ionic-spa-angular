@@ -13,7 +13,7 @@
     <ion-spinner name="lines"></ion-spinner>
   </div>
 
-  <app-modal-item [checkedItemIsOpen]="checkedItemIsOpen"  [checkedItem]="checkedItem"></app-modal-item>
+  <app-modal-item [checkedItemIsOpen]="checkedItemIsOpen"  [checkedItem]="checkedItem" (buttonClick)="unsetCheckedItem()"></app-modal-item>
 
   <app-global-error></app-global-error>
 

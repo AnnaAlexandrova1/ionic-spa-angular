@@ -29,6 +29,8 @@
 
 .close-button-area {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     padding: 8px;
 }
+
+
