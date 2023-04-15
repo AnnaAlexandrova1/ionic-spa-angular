@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ICheckedItem } from 'src/app/interfaces/interfaces';
+import { IBeerItem, ICheckedItem } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-modal-item',
@@ -7,5 +7,6 @@ import { ICheckedItem } from 'src/app/interfaces/interfaces';
   styleUrls: ['./modal-item.component.css']
 })
 export class ModalItemComponent {
-   @Input() checkedItem: ICheckedItem
+  @Input() checkedItemIsOpen: boolean
+  @Input() checkedItem: IBeerItem 
 }

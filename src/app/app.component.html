@@ -2,32 +2,38 @@
   <ion-header>
     <div class="header-container">
       <div>
-        <img class="logo-img" src='../assets/logo.jpg' alt="Main Logo" >
+        <img class="logo-img" src="../assets/logo.jpg" alt="Main Logo" />
       </div>
       <ion-button color="medium"> Избранное </ion-button>
     </div>
   </ion-header>
 
-  <div class="loading-element" *ngIf="loading">ЗАГРУЗКА
-            <ion-spinner name="lines"></ion-spinner>
+  <div class="loading-element" *ngIf="loading">
+    ЗАГРУЗКА
+    <ion-spinner name="lines"></ion-spinner>
   </div>
-  
-  <app-modal-item [checkedItem]="checkedItem"></app-modal-item>
- 
+
+  <app-modal-item [checkedItemIsOpen]="checkedItemIsOpen"  [checkedItem]="checkedItem"></app-modal-item>
+
   <app-global-error></app-global-error>
 
   <ion-content scrollEvents="true">
-    <card-item *ngFor="let item of items$ | async let i=index" 
-    [item]="item" (click)="setCheckedItem(item)"></card-item>
+    <card-item
+      *ngFor="let item of items$ | async; let i = index"
+      [item]="item"
+      (click)="setCheckedItem(item)"
+    ></card-item>
 
-     <ion-grid class="pagination-element">
-
-      <ion-row class="ion-justify-content-around">      
-              <ion-col *ngFor="let arr of [1, 2, 3]"
-              size="3" class="pagination-item"
-              (click)="goToPage(arr)">{{arr}}</ion-col> 
+    <ion-grid class="pagination-element">
+      <ion-row class="ion-justify-content-around">
+        <ion-col
+          *ngFor="let arr of [1, 2, 3]"
+          size="3"
+          class="pagination-item"
+          (click)="goToPage(arr)"
+          >{{ arr }}</ion-col
+        >
       </ion-row>
     </ion-grid>
-
   </ion-content>
 </ion-app>
