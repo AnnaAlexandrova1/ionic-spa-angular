@@ -31,7 +31,6 @@ export class PaginationComponent {
  if (pageNumber === this.currentPage)
    return;
   this.currentPage = pageNumber;
-  console.log(this.currentPage)
   this.goToPage.emit(pageNumber);
 }
 }

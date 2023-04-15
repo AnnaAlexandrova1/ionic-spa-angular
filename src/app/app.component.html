@@ -29,7 +29,7 @@
         <ion-col
           *ngFor="let arr of [1, 2, 3]"
           size="3"
-          class="pagination-item"
+          [class]="drowStylePages(arr)"
           (click)="goToPage(arr)"
           >{{ arr }}</ion-col
         >

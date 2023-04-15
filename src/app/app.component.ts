@@ -15,11 +15,10 @@ export class AppComponent implements OnInit{
   title = 'spa-angular';
   items$: Observable<IBeerList>
   loading = false
-  private _currentPage: number = 1;
+  public _currentPage: number = 1;
 
   checkedItem: IBeerItem  = ex
   checkedItemIsOpen: boolean = false
- 
 
   constructor(private itemsService: GetApiService) { }
 
@@ -36,6 +35,14 @@ export class AppComponent implements OnInit{
   public goToPage(page: number): void {
     this._currentPage = page;
     this._loadItems(this._currentPage)
+  }
+
+  public drowStylePages(e: number) {
+    if (e === this._currentPage) {
+      return 'pagination-item checked'
+    } else {
+      return 'pagination-item'
+    }
   }
   
   private _loadItems(page: number = 1) {
