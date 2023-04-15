@@ -4,18 +4,21 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { ProductComponent } from './components/product/product.conponent';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { ModalItemComponent } from './components/modal-item/modal-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, 
-    CardItemComponent, GlobalErrorComponent, PaginationComponent
+    CardItemComponent,
+    GlobalErrorComponent,
+    PaginationComponent,
+    ModalItemComponent
   ],
   imports: [
     BrowserModule,

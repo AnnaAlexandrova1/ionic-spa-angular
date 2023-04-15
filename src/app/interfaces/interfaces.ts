@@ -41,3 +41,8 @@ export interface MyPagination {
   itemsCount: number;
   pageSize: number;
 }
+
+export interface ICheckedItem {
+    item: IBeerItem | '',
+    isOpen: boolean
+}
