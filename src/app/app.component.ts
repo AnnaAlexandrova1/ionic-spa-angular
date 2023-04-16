@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { GetApiService } from './services/get-api.service';
 import { IBeerList, IBeerItem, ICheckedItem } from './interfaces/interfaces';
 import { Observable, tap, BehaviorSubject } from 'rxjs';
@@ -11,7 +11,7 @@ import { ex } from './interfaces/data';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnChanges{
   title = 'spa-angular';
   items$: Observable<IBeerList>
   loading = false
@@ -64,6 +64,10 @@ export class AppComponent implements OnInit{
     this.items$ = this.itemsService.getAll(this._currentPage).pipe(
       tap(() => this.loading = false)
     )
+  }
+
+   ngOnChanges(changes: SimpleChanges): void{
+    console.log(changes)
   }
 
   ngOnInit(): void {

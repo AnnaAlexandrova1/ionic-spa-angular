@@ -8,7 +8,23 @@
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
-   <div>WORK</div>
+      
+        <ion-content class="ion-padding">
+          <div *ngIf="itemsArr.length===0">В избранном пока пусто</div>
+
+          <div *ngIf="itemsArr.length>0">
+          <ion-item *ngFor="let item of itemsArr">
+            <ion-thumbnail slot="start">
+              <img class='img-selected' [alt]="item.name" [src]="item.image_url" />
+            </ion-thumbnail>
+            <ion-label>{{item.name}}</ion-label>
+            <ion-button color="warning" (click)="removeSelectedBeer(item.id)">Удалить</ion-button>
+          </ion-item> 
+          </div>
+       
+        </ion-content>
+
+
   </ng-template>
 </ion-modal>
 

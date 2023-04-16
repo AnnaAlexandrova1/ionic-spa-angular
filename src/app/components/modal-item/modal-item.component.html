@@ -1,7 +1,7 @@
 <ion-modal [isOpen]="checkedItemIsOpen" class="item-modal">
   <ng-template>
     <div class="close-button-area">
-      <ion-button color="success">
+      <ion-button color="success" (click)="setBeerItem(checkedItem.id, checkedItem)">
         В избранное
         <ion-icon slot="end" name="star"></ion-icon>
       </ion-button>
