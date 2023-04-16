@@ -20,6 +20,8 @@ export class AppComponent implements OnInit{
   checkedItem: IBeerItem  = ex
   checkedItemIsOpen: boolean = false
 
+  selectedIsOpen = false
+
   constructor(private itemsService: GetApiService) { }
 
   public setCheckedItem(item: IBeerItem):void {
@@ -43,6 +45,14 @@ export class AppComponent implements OnInit{
     } else {
       return 'pagination-item'
     }
+  }
+
+  public selectedOpen() {
+    this.selectedIsOpen = true;
+  }
+
+  public selectedClose() {
+    this.selectedIsOpen = false
   }
   
   private _loadItems(page: number = 1) {
