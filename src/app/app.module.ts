@@ -10,6 +10,7 @@ import { CardItemComponent } from './components/card-item/card-item.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ModalItemComponent } from './components/modal-item/modal-item.component';
+import { ModalSelectedComponent } from './components/modal-selected/modal-selected.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ModalItemComponent } from './components/modal-item/modal-item.component
     CardItemComponent,
     GlobalErrorComponent,
     PaginationComponent,
-    ModalItemComponent
+    ModalItemComponent,
+    ModalSelectedComponent
   ],
   imports: [
     BrowserModule,
