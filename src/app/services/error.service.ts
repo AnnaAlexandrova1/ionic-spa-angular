@@ -2,26 +2,25 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ErrorService {
-  error$ = new Subject<string>()
-  status$ = new Subject<number>()
-  
+  error$ = new Subject<string>();
+  status$ = new Subject<number>();
+
   handle(message: string) {
-    this.error$.next(message)
+    this.error$.next(message);
   }
 
   clear() {
-    this.error$.next('')
+    this.error$.next('');
   }
 
   handleStatus(status: number) {
-    this.status$.next(status)
-   
+    this.status$.next(status);
   }
 
   statusClear() {
-    this.status$.next(-1)
+    this.status$.next(-1);
   }
 }

@@ -4,31 +4,26 @@ import { IBeerList, IBeerItem, IError } from './interfaces/interfaces';
 import { tap } from 'rxjs';
 import { example } from './interfaces/data';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-
-export class AppComponent implements OnInit, OnChanges{
+export class AppComponent implements OnInit, OnChanges {
   title = 'spa-angular';
   // items$: Observable<IBeerList>
-  items:IBeerList
-  loading = false
-  error: IError = { isError: false,
-  message: '',
-  status: 0 }
+  items: IBeerList;
+  loading = false;
+  error: IError = { isError: false, message: '', status: 0 };
   currentPage: number = 1;
 
-  checkedItem: IBeerItem  = example
-  checkedItemIsOpen: boolean = false
+  checkedItem: IBeerItem = example;
+  checkedItemIsOpen: boolean = false;
+  selectedIsOpen = false;
 
-  selectedIsOpen = false
+  constructor(private itemsService: GetApiService) {}
 
-  constructor(private itemsService: GetApiService) { }
-
-  public setCheckedItem(item: IBeerItem):void {
+  public setCheckedItem(item: IBeerItem): void {
     this.checkedItem = item;
     this.checkedItemIsOpen = true;
   }
@@ -39,7 +34,7 @@ export class AppComponent implements OnInit, OnChanges{
 
   public goToPage(page: number): void {
     this.currentPage = page;
-    this._loadItems(this.currentPage)
+    this._loadItems(this.currentPage);
   }
 
   public selectedOpen() {
@@ -47,36 +42,36 @@ export class AppComponent implements OnInit, OnChanges{
   }
 
   public selectedClose() {
-    this.selectedIsOpen = false
+    this.selectedIsOpen = false;
   }
-  
+
   private _loadItems(page: number = 1) {
-    this.getItems()
+    this.getItems();
   }
 
-  getItems(): void{
-    this.loading = true
-    this.itemsService.getAll(this.currentPage).pipe(
-      tap(() => this.loading = false)
-    ).subscribe(
-      (res: IBeerList | any) => {
-        this.items = res
-      },
-      (err) => {
-        this.error.isError = true,
-        this.error.message = err.message,
-        this.error.status = err.status
-        this.loading = false
-      }
-    )
+  getItems(): void {
+    this.loading = true;
+    this.itemsService
+      .getAll(this.currentPage)
+      .pipe(tap(() => (this.loading = false)))
+      .subscribe(
+        (res: IBeerList | any) => {
+          this.items = res;
+        },
+        (err) => {
+          (this.error.isError = true),
+            (this.error.message = err.message),
+            (this.error.status = err.status);
+          this.loading = false;
+        }
+      );
   }
 
-   ngOnChanges(changes: SimpleChanges): void{
+  ngOnChanges(changes: SimpleChanges): void {
     // console.log(changes)
   }
 
   ngOnInit(): void {
-    this.getItems()
+    this.getItems();
   }
 }
-
