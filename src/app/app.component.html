@@ -4,35 +4,34 @@
       <div>
         <img class="logo-img" src="../assets/logo.jpg" alt="Main Logo" />
       </div>
-      <ion-button color="medium" (click)="selectedOpen()"> Избранное </ion-button>
+      <ion-button color="medium" (click)="selectedOpen()">
+        Избранное
+      </ion-button>
     </div>
   </ion-header>
 
-  <app-modal-item [checkedItemIsOpen]="checkedItemIsOpen"  [checkedItem]="checkedItem" (buttonClick)="unsetCheckedItem()"></app-modal-item>
-  <app-modal-selected [selectedIsOpen]="selectedIsOpen" (buttonClick)="selectedClose()"></app-modal-selected>
-  
-   <app-loading [loading]="loading"></app-loading>
+  <app-modal-item
+    [checkedItemIsOpen]="checkedItemIsOpen"
+    [checkedItem]="checkedItem"
+    (buttonClick)="unsetCheckedItem()"
+  ></app-modal-item>
+  <app-modal-selected
+    [selectedIsOpen]="selectedIsOpen"
+    (buttonClick)="selectedClose()"
+  ></app-modal-selected>
+
+  <app-loading [loading]="loading"></app-loading>
   <app-global-error [error]="error"></app-global-error>
   <error-toast [error]="error"></error-toast>
- 
 
-  <ion-content scrollEvents="true" >
+  <ion-content scrollEvents="true">
     <card-item
       *ngFor="let item of items"
       [item]="item"
       (click)="setCheckedItem(item)"
     ></card-item>
 
-    <ion-grid class="pagination-element">
-      <ion-row class="ion-justify-content-around">
-        <ion-col
-          *ngFor="let arr of [1, 2, 3]"
-          size="3"
-          [class]="drowStylePages(arr)"
-          (click)="goToPage(arr)"
-          >{{ arr }}</ion-col
-        >
-      </ion-row>
-    </ion-grid>
+  <app-pagination (goToPage)="goToPage($event)" [currentPage]="currentPage"></app-pagination>
   </ion-content>
+
 </ion-app>

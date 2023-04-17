@@ -1,7 +1,11 @@
 <ion-grid class="pagination-element">
-      <ion-row class="ion-justify-content-around">      
-              <ion-col *ngFor="let arr of [1, 2, 3]"
-              size="3" class="pagination-item"
-              (click)="setPage(arr)">{{arr}}</ion-col> 
-      </ion-row>
+  <ion-row class="ion-justify-content-around">
+    <ion-col
+      *ngFor="let item of pagesList"
+      size="3"
+      [class]="drowStylePages(item)"
+      (click)="setPage(item)"
+      >{{ item }}</ion-col
+    >
+  </ion-row>
 </ion-grid>

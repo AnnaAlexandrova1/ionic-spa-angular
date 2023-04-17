@@ -1,8 +1,8 @@
 import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { GetApiService } from './services/get-api.service';
 import { IBeerList, IBeerItem, IError } from './interfaces/interfaces';
-import { Observable, tap, BehaviorSubject } from 'rxjs';
-import { ex } from './interfaces/data';
+import { tap } from 'rxjs';
+import { example } from './interfaces/data';
 
 
 @Component({
@@ -19,9 +19,9 @@ export class AppComponent implements OnInit, OnChanges{
   error: IError = { isError: false,
   message: '',
   status: 0 }
-  public _currentPage: number = 1;
+  currentPage: number = 1;
 
-  checkedItem: IBeerItem  = ex
+  checkedItem: IBeerItem  = example
   checkedItemIsOpen: boolean = false
 
   selectedIsOpen = false
@@ -38,16 +38,8 @@ export class AppComponent implements OnInit, OnChanges{
   }
 
   public goToPage(page: number): void {
-    this._currentPage = page;
-    this._loadItems(this._currentPage)
-  }
-
-  public drowStylePages(e: number) {
-    if (e === this._currentPage) {
-      return 'pagination-item checked'
-    } else {
-      return 'pagination-item'
-    }
+    this.currentPage = page;
+    this._loadItems(this.currentPage)
   }
 
   public selectedOpen() {
@@ -64,7 +56,7 @@ export class AppComponent implements OnInit, OnChanges{
 
   getItems(): void{
     this.loading = true
-    this.itemsService.getAll(this._currentPage).pipe(
+    this.itemsService.getAll(this.currentPage).pipe(
       tap(() => this.loading = false)
     ).subscribe(
       (res: IBeerList | any) => {
@@ -72,8 +64,8 @@ export class AppComponent implements OnInit, OnChanges{
       },
       (err) => {
         this.error.isError = true,
-          this.error.message = err.message,
-          this.error.status = err.status
+        this.error.message = err.message,
+        this.error.status = err.status
         this.loading = false
       }
     )

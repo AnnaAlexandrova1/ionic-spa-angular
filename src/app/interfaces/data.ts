@@ -1,6 +1,6 @@
 import { IBeerItem } from "./interfaces";
 
-export const ex: IBeerItem = {
+export const example: IBeerItem = {
   id: 1, name: 'Buzz', tagline: 'A Real Bitter Experience.', first_brewed: '09/2007',
   description: 'A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.',
   image_url: "https://images.punkapi.com/v2/keg.png",
