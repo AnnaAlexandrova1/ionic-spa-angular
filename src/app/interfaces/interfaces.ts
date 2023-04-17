@@ -46,3 +46,9 @@ export interface ICheckedItem {
     item: IBeerItem | '',
     isOpen: boolean
 }
+
+export interface IError {
+    isError: boolean,
+    message: string,
+    status: number
+}

@@ -11,6 +11,7 @@ import { GlobalErrorComponent } from './components/global-error/global-error.com
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ModalItemComponent } from './components/modal-item/modal-item.component';
 import { ModalSelectedComponent } from './components/modal-selected/modal-selected.component';
+import { ErrorToastComponent } from './components/error-toast/error-toast.component';
 
 
 
@@ -21,7 +22,8 @@ import { ModalSelectedComponent } from './components/modal-selected/modal-select
     GlobalErrorComponent,
     PaginationComponent,
     ModalItemComponent,
-    ModalSelectedComponent
+    ModalSelectedComponent,
+    ErrorToastComponent
   ],
   imports: [
     BrowserModule,

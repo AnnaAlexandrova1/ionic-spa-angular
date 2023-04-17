@@ -1,0 +1,6 @@
+<ion-toast
+    [isOpen]="error.status==429"
+    message="Превышено количество запросов"
+    [duration]="2000"
+    (didDismiss)="error.status=0"
+  ></ion-toast>

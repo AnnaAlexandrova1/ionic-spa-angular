@@ -1,6 +1,6 @@
 import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { GetApiService } from './services/get-api.service';
-import { IBeerList, IBeerItem, ICheckedItem } from './interfaces/interfaces';
+import { IBeerList, IBeerItem, IError } from './interfaces/interfaces';
 import { Observable, tap, BehaviorSubject } from 'rxjs';
 import { ex } from './interfaces/data';
 
@@ -13,9 +13,12 @@ import { ex } from './interfaces/data';
 
 export class AppComponent implements OnInit, OnChanges{
   title = 'spa-angular';
-  items$: Observable<IBeerList>
-  // items:IBeerList
+  // items$: Observable<IBeerList>
+  items:IBeerList
   loading = false
+  error: IError = { isError: false,
+  message: '',
+  status: 0 }
   public _currentPage: number = 1;
 
   checkedItem: IBeerItem  = ex
@@ -61,22 +64,24 @@ export class AppComponent implements OnInit, OnChanges{
 
   getItems(): void{
     this.loading = true
-    this.items$ = this.itemsService.getAll(this._currentPage).pipe(
-      tap(() => this.loading = false)
-    )
-    this.items$.subscribe((res) => console.log(res))
-
-    // this.itemsService.getAll(this._currentPage).pipe(
+    // this.items$ = this.itemsService.getAll(this._currentPage).pipe(
     //   tap(() => this.loading = false)
-    // ).subscribe(
-    //   (res: IBeerList) => {
-    //     console.log(res)
-    //    this.items=res
-    //   },
-    //   (err) => {
-    //     console.log(err)
-    //   }
     // )
+    // this.items$.subscribe((res) => console.log(res))
+
+    this.itemsService.getAll(this._currentPage).pipe(
+      tap(() => this.loading = false)
+    ).subscribe(
+      (res: IBeerList | any) => {
+        this.items = res
+      },
+      (err) => {
+        this.error.isError = true,
+          this.error.message = err.message,
+          this.error.status = err.status
+        this.loading = false
+      }
+    )
   }
 
    ngOnChanges(changes: SimpleChanges): void{

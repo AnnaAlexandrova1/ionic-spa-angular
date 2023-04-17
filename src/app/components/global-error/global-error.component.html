@@ -1,4 +1,4 @@
-<div class="error-element" *ngIf="errorService.error$ | async as error">ОШИБКА
-<ion-text color="warning">{{ error }}</ion-text>
+<div class="error-element" *ngIf="error.isError && error.status!==429">ОШИБКА
+<ion-text color="warning">{{ error.message }}</ion-text>
 </div>
 

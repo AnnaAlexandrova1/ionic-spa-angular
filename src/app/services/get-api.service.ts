@@ -32,7 +32,8 @@ export class GetApiService {
 
     private errorHandler(error: HttpErrorResponse) {
         this.errorService.handle(error.message)
+        this.errorService.handleStatus(error.status)
         console.log(error.status)
-        return throwError(() => error.status)
+        return throwError(() => error)
     }
 }

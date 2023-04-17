@@ -15,11 +15,12 @@
 
   <app-modal-item [checkedItemIsOpen]="checkedItemIsOpen"  [checkedItem]="checkedItem" (buttonClick)="unsetCheckedItem()"></app-modal-item>
   <app-modal-selected [selectedIsOpen]="selectedIsOpen" (buttonClick)="selectedClose()"></app-modal-selected>
-  <app-global-error></app-global-error>
+  <app-global-error [error]="error"></app-global-error>
+  <error-toast [error]="error"></error-toast>
 
   <ion-content scrollEvents="true">
     <card-item
-      *ngFor="let item of items$ | async; let i = index"
+      *ngFor="let item of items"
       [item]="item"
       (click)="setCheckedItem(item)"
     ></card-item>
