@@ -36,6 +36,7 @@
     "@capacitor/cli": "^4.7.3",
     "@ionic/angular-toolkit": "latest",
     "@types/jasmine": "~4.3.0",
+    "angular-cli-ghpages": "^1.0.5",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
