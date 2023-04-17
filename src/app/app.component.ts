@@ -64,11 +64,6 @@ export class AppComponent implements OnInit, OnChanges{
 
   getItems(): void{
     this.loading = true
-    // this.items$ = this.itemsService.getAll(this._currentPage).pipe(
-    //   tap(() => this.loading = false)
-    // )
-    // this.items$.subscribe((res) => console.log(res))
-
     this.itemsService.getAll(this._currentPage).pipe(
       tap(() => this.loading = false)
     ).subscribe(

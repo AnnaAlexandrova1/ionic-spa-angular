@@ -8,15 +8,13 @@
     </div>
   </ion-header>
 
-  <div class="loading-element" *ngIf="loading">
-    ЗАГРУЗКА
-    <ion-spinner name="lines"></ion-spinner>
-  </div>
-
   <app-modal-item [checkedItemIsOpen]="checkedItemIsOpen"  [checkedItem]="checkedItem" (buttonClick)="unsetCheckedItem()"></app-modal-item>
   <app-modal-selected [selectedIsOpen]="selectedIsOpen" (buttonClick)="selectedClose()"></app-modal-selected>
+  
+   <app-loading [loading]="loading"></app-loading>
   <app-global-error [error]="error"></app-global-error>
   <error-toast [error]="error"></error-toast>
+ 
 
   <ion-content scrollEvents="true" >
     <card-item

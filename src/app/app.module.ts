@@ -12,6 +12,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { ModalItemComponent } from './components/modal-item/modal-item.component';
 import { ModalSelectedComponent } from './components/modal-selected/modal-selected.component';
 import { ErrorToastComponent } from './components/error-toast/error-toast.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 
@@ -23,7 +24,8 @@ import { ErrorToastComponent } from './components/error-toast/error-toast.compon
     PaginationComponent,
     ModalItemComponent,
     ModalSelectedComponent,
-    ErrorToastComponent
+    ErrorToastComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
