@@ -14,6 +14,7 @@ import { ex } from './interfaces/data';
 export class AppComponent implements OnInit, OnChanges{
   title = 'spa-angular';
   items$: Observable<IBeerList>
+  // items:IBeerList
   loading = false
   public _currentPage: number = 1;
 
@@ -27,7 +28,6 @@ export class AppComponent implements OnInit, OnChanges{
   public setCheckedItem(item: IBeerItem):void {
     this.checkedItem = item;
     this.checkedItemIsOpen = true;
-    console.log(this.checkedItem)
   }
 
   public unsetCheckedItem(): void {
@@ -64,10 +64,23 @@ export class AppComponent implements OnInit, OnChanges{
     this.items$ = this.itemsService.getAll(this._currentPage).pipe(
       tap(() => this.loading = false)
     )
+    this.items$.subscribe((res) => console.log(res))
+
+    // this.itemsService.getAll(this._currentPage).pipe(
+    //   tap(() => this.loading = false)
+    // ).subscribe(
+    //   (res: IBeerList) => {
+    //     console.log(res)
+    //    this.items=res
+    //   },
+    //   (err) => {
+    //     console.log(err)
+    //   }
+    // )
   }
 
    ngOnChanges(changes: SimpleChanges): void{
-    console.log(changes)
+    // console.log(changes)
   }
 
   ngOnInit(): void {

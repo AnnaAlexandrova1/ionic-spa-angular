@@ -11,7 +11,7 @@ export class GlobalErrorComponent implements OnInit {
   constructor(public errorService: ErrorService){}
 
   ngOnInit(): void {
-      
+      console.log(this.errorService.error$)
   }
 
 }

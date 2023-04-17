@@ -33,6 +33,6 @@ export class GetApiService {
     private errorHandler(error: HttpErrorResponse) {
         this.errorService.handle(error.message)
         console.log(error.status)
-        return throwError(() => error.message)
+        return throwError(() => error.status)
     }
 }
