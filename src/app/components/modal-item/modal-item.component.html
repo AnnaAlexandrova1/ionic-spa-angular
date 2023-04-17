@@ -1,51 +1,57 @@
-<ion-modal [isOpen]="checkedItemIsOpen" class="item-modal">
+<ion-modal
+  #modal
+  [isOpen]="checkedItemIsOpen"
+  class="item-modal"
+  scrollEvents="true"
+>
   <ng-template>
-    <div class="close-button-area">
-      <ion-button
-        *ngIf="selected === false"
-        color="success"
-        (click)="setBeerItem(checkedItem.id, checkedItem)"
-        [disabled]="disabled"
-      >
-        В избранное
-        <ion-icon slot="end" name="star"></ion-icon>
-      </ion-button>
+    <div class="modal-content">
+      <div class="close-button-area">
+        <ion-button
+          *ngIf="selected === false"
+          color="success"
+          (click)="setBeerItem(checkedItem.id, checkedItem)"
+          [disabled]="disabled"
+        >
+          В избранное
+          <ion-icon slot="end" name="star"></ion-icon>
+        </ion-button>
 
-      <ion-button *ngIf="selected === true" color="success" disabled="true">
-        В избранном
-        <ion-icon slot="end" name="star"></ion-icon>
-      </ion-button>
+        <ion-button *ngIf="selected === true" color="success" disabled="true">
+          В избранном
+          <ion-icon slot="end" name="star"></ion-icon>
+        </ion-button>
 
-      <ion-icon
-        name="close-circle-outline"
-        size="large"
-        (click)="unCheckedItem()"
-      ></ion-icon>
+        <ion-icon
+          name="close-circle-outline"
+          size="large"
+          (click)="unCheckedItem()"
+        ></ion-icon>
+      </div>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title> {{ checkedItem.name }} </ion-card-title>
+          <ion-card-subtitle> {{ checkedItem.abv }} </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <img
+            class="card-image"
+            [alt]="checkedItem.name"
+            [src]="checkedItem.image_url"
+          />
+
+          <div class="card-content-container">
+            <div class="card-content-item">
+              Description:
+              <p>{{ checkedItem.description }}</p>
+            </div>
+            <div class="card-content-item">
+              Tagline:
+              <p>{{ checkedItem.tagline }}</p>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
     </div>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title> {{ checkedItem.name }} </ion-card-title>
-        <ion-card-subtitle> {{ checkedItem.abv }} </ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <img
-          class="card-image"
-          [alt]="checkedItem.name"
-          [src]="checkedItem.image_url"
-        />
-
-        <div class="card-content-container">
-          <div class="card-content-item">
-            Description:
-            <p>{{ checkedItem.description }}</p>
-          </div>
-          <div class="card-content-item">
-            Tagline:
-            <p>{{ checkedItem.tagline }}</p>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
   </ng-template>
 </ion-modal>

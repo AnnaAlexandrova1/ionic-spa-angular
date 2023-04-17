@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { IBeerItem, ICheckedItem } from 'src/app/interfaces/interfaces';
 import { Preferences } from '@capacitor/preferences';
+import { AnimationController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal-item',
@@ -45,4 +46,5 @@ export class ModalItemComponent implements OnInit, OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
     this.getSelectedBeer()
   }
+
 }

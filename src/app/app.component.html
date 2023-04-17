@@ -1,4 +1,4 @@
-<ion-app>
+<ion-app id="ion-app-component">
   <ion-header>
     <div class="header-container">
       <div>
@@ -18,7 +18,7 @@
   <app-global-error [error]="error"></app-global-error>
   <error-toast [error]="error"></error-toast>
 
-  <ion-content scrollEvents="true">
+  <ion-content scrollEvents="true" >
     <card-item
       *ngFor="let item of items"
       [item]="item"
