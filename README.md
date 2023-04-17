@@ -1,5 +1,5 @@
  **Тестовое задание**  
- **SPA c использованием Andular, Ionic Framework и Capacitor**
+ **SPA c использованием Angular, Ionic Framework и Capacitor**
 
  [Ссылка на GitHub Pages - реализация](https://annaalexandrova1.github.io/ionic-spa-angular/)
 
