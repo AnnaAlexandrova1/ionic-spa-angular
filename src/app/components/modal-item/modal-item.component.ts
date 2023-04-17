@@ -17,7 +17,8 @@ export class ModalItemComponent implements OnInit, OnChanges{
   disabled: boolean = false
 
   public unCheckedItem(): void {
-    	this.buttonClick.emit();
+    this.buttonClick.emit();
+    this.disabled = false
   }
 
   getSelectedBeer = async () => {
