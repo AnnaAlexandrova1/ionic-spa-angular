@@ -19,4 +19,4 @@ npx cap open android
 ```
 Для проверки можно запустить эмулятор с выбранным виртуальным устройством (если еще не создано ни одного устройства, необходимо создать)
 
-![Реализация](https://github.com/AnnaAlexandrova1/ionic-spa/blob/master/src/images/render.png)
+![Реализация](https://github.com/AnnaAlexandrova1/ionic-spa-angular/blob/master/src/assets/%D0%9E%D0%B1%D1%80%D0%B0%D0%B7%D0%B5%D1%86%20render.png)
